@@ -1,0 +1,186 @@
+﻿<controls:MetroWindow x:Class="cameraControllerHID.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" 
+        Title="CamCtrl" Height="195" Width="167" ResizeMode="CanMinimize" Topmost="True" Loaded="Window_Loaded"
+                      ShowIconOnTitleBar="False" Background="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}" Closing="MetroWindow_Closing">
+    <Grid>
+        <Button x:Name="pre1" Content="1" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="20" Click="preN_Click" MouseRightButtonUp="preN_Program" IsEnabled="False"/>
+        <Button x:Name="pre2" Content="2" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top" Width="20" Click="preN_Click" MouseRightButtonUp="preN_Program" IsEnabled="False"/>
+        <Button x:Name="pre3" Content="3" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" Width="20" Click="preN_Click" MouseRightButtonUp="preN_Program" IsEnabled="False"/>
+        <Button x:Name="pre4" Content="4" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" Width="20" Click="preN_Click" MouseRightButtonUp="preN_Program" IsEnabled="False"/>
+        <Canvas x:Name="clickWheel" HorizontalAlignment="Left" Height="117" Margin="35,26,0,0" VerticalAlignment="Top" Width="121">
+            <Button x:Name="UpArrow" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" IsEnabled="False" Canvas.Left="42" Canvas.Top="2" ButtonBase.PreviewMouseDown="clickWheel_Down" ButtonBase.PreviewMouseUp="clickWheel_Up">
+                <Rectangle Width="10" Height="10" Fill="{DynamicResource BlackBrush}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+        					Visual="{DynamicResource appbar_chevron_up}"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button x:Name="DownArrow" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" IsEnabled="False" Canvas.Left="42" Canvas.Top="83" ButtonBase.PreviewMouseDown="clickWheel_Down" ButtonBase.PreviewMouseUp="clickWheel_Up">
+                <Rectangle Width="10" Height="10" Fill="{DynamicResource BlackBrush}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+        					Visual="{DynamicResource appbar_chevron_down}"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button x:Name="RightArrow" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" IsEnabled="False" Canvas.Left="81" Canvas.Top="41" ButtonBase.PreviewMouseDown="clickWheel_Down" ButtonBase.PreviewMouseUp="clickWheel_Up">
+                <Rectangle Width="10" Height="10" Fill="{DynamicResource BlackBrush}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+        					Visual="{DynamicResource appbar_chevron_right}"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button x:Name="LeftArrow" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" IsEnabled="False" Canvas.Left="1" Canvas.Top="41" ButtonBase.PreviewMouseDown="clickWheel_Down" ButtonBase.PreviewMouseUp="clickWheel_Up">
+                <Rectangle Width="10" Height="10" Fill="{DynamicResource BlackBrush}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+        					Visual="{DynamicResource appbar_chevron_left}"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button x:Name="UpRightArrow" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" IsEnabled="False" Canvas.Left="69" Canvas.Top="14" ButtonBase.PreviewMouseDown="clickWheel_Down" ButtonBase.PreviewMouseUp="clickWheel_Up">
+                <Rectangle Width="10" Height="10" Fill="{DynamicResource BlackBrush}" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="45"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+        					Visual="{DynamicResource appbar_chevron_up}"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button x:Name="DownRightArrow" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" IsEnabled="False" Canvas.Left="69" Canvas.Top="69" ButtonBase.PreviewMouseDown="clickWheel_Down" ButtonBase.PreviewMouseUp="clickWheel_Up">
+                <Rectangle Width="10" Height="10" Fill="{DynamicResource BlackBrush}" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="45"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+        					Visual="{DynamicResource appbar_chevron_right}"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button x:Name="DownLeftArrow" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" IsEnabled="False" Canvas.Left="15" Canvas.Top="69" ButtonBase.PreviewMouseDown="clickWheel_Down" ButtonBase.PreviewMouseUp="clickWheel_Up">
+                <Rectangle Width="10" Height="10" Fill="{DynamicResource BlackBrush}" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="45"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+        					Visual="{DynamicResource appbar_chevron_down}"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button x:Name="UpLeftArrow" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" IsEnabled="False" Canvas.Left="15" Canvas.Top="14" ButtonBase.PreviewMouseDown="clickWheel_Down" ButtonBase.PreviewMouseUp="clickWheel_Up">
+                <Rectangle Width="10" Height="10" Fill="{DynamicResource BlackBrush}" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="45"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+        					Visual="{DynamicResource appbar_chevron_left}"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button x:Name="Stop" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="35" Style="{DynamicResource MetroCircleButtonStyle}" IsEnabled="False" Canvas.Left="42" Canvas.Top="43" Click="Stop_Click">
+                <Rectangle Width="7" Height="7" Fill="{DynamicResource BlackBrush}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+            				Visual="{DynamicResource appbar_control_stop}"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button x:Name="ReCal" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" IsEnabled="False" Canvas.Top="92" Click="ReCal_Click" ToolTip="Recalibrate pan/tilt controller">
+                <Rectangle Width="7" Height="7" Fill="{DynamicResource BlackBrush}" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+            				Visual="{DynamicResource appbar_crosshair}"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button x:Name="SetPresetTime" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" IsEnabled="False" ToolTip="Preset recall time" Click="SetPresetTime_Click">
+                <Rectangle Width="10" Height="7" Fill="{DynamicResource BlackBrush}" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+            				Visual="{DynamicResource appbar_gauge_100}"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+            <Button x:Name="joyOptions" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="25" Style="{DynamicResource MetroCircleButtonStyle}" IsEnabled="False" Canvas.Top="92" Click="joyOpt_Click" ToolTip="Joystick control options" Canvas.Left="96">
+                <Rectangle Width="7" Height="7" Fill="{DynamicResource BlackBrush}" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush Stretch="Fill"
+            				Visual="{DynamicResource appbar_cog}"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+            </Button>
+        </Canvas>
+
+        <Label x:Name="camName" Content="No Camera Connected" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Height="26" VerticalAlignment="Top" Width="161" MouseDoubleClick="camName_MouseDoubleClick" IsEnabled="False" FontWeight="Bold"/>
+        <Rectangle x:Name="camIcon" Margin="46,148,113,8" Opacity="0.4">
+            <Rectangle.Fill>
+                <VisualBrush Visual="{StaticResource appbar_lightning}" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label x:Name="camLabel" Content="Camera" HorizontalAlignment="Left" Height="28" Margin="53,140,0,-2" VerticalAlignment="Top" Width="48" FontSize="10" Opacity="0.4"/>
+        <Rectangle x:Name="joyIcon" Margin="102,148,57,8" Opacity="0.4">
+            <Rectangle.Fill>
+                <VisualBrush Visual="{StaticResource appbar_lightning}" />
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label x:Name="joyLabel" Content="Joystick" HorizontalAlignment="Left" Height="28" Margin="109,140,0,-2" VerticalAlignment="Top" Width="48" FontSize="10" Opacity="0.4"/>
+        <Button x:Name="preSet"  HorizontalAlignment="Left" Margin="10,126,30,0" VerticalAlignment="Top" Click="preSet_Click" Height="24" Width="20" Foreground="#FF2CA237" ToolTip="Set preset" IsEnabled="False">
+            <Rectangle Width="10" Height="10" Fill="{DynamicResource BlackBrush}" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill"
+            				Visual="{DynamicResource appbar_heart}"/>
+                </Rectangle.OpacityMask>
+            </Rectangle>
+        </Button>
+        
+        
+    </Grid>
+
+    <controls:MetroWindow.Flyouts>
+        <controls:FlyoutsControl>
+            <controls:Flyout x:Name="presetTimeFlyout" Position="Left">
+                <StackPanel Orientation="Vertical">
+                    <Label x:Name="presetTime" Content="" HorizontalAlignment="Center" Margin="0, 0, 0, 0" VerticalAlignment="Top" FontSize="10"/>
+                    <Slider x:Name="presetTimeSlider" Width="20" Height="70" Margin="0, 10, 0, 0" IsEnabled="True" Orientation="Vertical" Minimum="1" Maximum="30" ValueChanged="presetTimeSlider_ValueChanged" Value="5" />
+                </StackPanel>
+            </controls:Flyout>
+
+            <controls:Flyout x:Name="joyOptionsFlyout" Position="Right" >
+                <StackPanel Orientation="Vertical">
+                    <Label x:Name="joySense" Content="" HorizontalAlignment="Center" Margin="0, 0, 0, 0" VerticalAlignment="Top" FontSize="10"/>
+                    <Slider x:Name="joySenseSlider" Width="20" Height="70" Margin="0, 10, 0, 0" IsEnabled="True" Orientation="Vertical" Minimum="1" Maximum="30" ValueChanged="joySenseSlider_ValueChanged" Value="15" />
+                </StackPanel>
+            </controls:Flyout>
+        </controls:FlyoutsControl>
+    </controls:MetroWindow.Flyouts>
+
+</controls:MetroWindow>
